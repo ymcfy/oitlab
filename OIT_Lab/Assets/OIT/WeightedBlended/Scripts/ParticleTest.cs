@@ -21,10 +21,15 @@ public class ParticleTest : MonoBehaviour
     private int b = 1;
     private bool paticalSwitch = true;
     private System.Timers.Timer timer;
-    private int releaseSourcePoint = 0;
-    private int corePoint = 0;
-    private int edgePoint = 0;
+    //private int releaseSourcePoint = 0;
+    private int onePoint = 0;
+    private int twoPoint = 0;
     private int zeroPoint = 0;
+    private int threePoint = 0;
+    private int fourPoint = 0;
+    private int fivePoint = 0;
+    private int sixPoint = 0;
+    private int sevenPoint = 0;
 
     /// <summary>
     /// FLACS扩散的相应UI，例如开始暂停等等
@@ -93,8 +98,50 @@ public class ParticleTest : MonoBehaviour
                 }
             }
         }
-
-
+        //float[] fx = new float[] { 220 ,   222 ,   224 ,   226 ,   228 ,
+        //230 ,   232 ,   234 ,   236 ,   238 ,
+        //240 ,   242 ,   244 ,   246 ,   248 ,
+        //250 ,   252 ,   254 ,   256 ,   258 ,
+        //260 ,   262 ,   264 ,   266 ,   268 ,
+        //270 ,   272 ,   274 ,   276 ,   278 ,
+        //280 ,   282 ,   284 ,   286 ,   288 ,
+        //290 ,   292 ,   294 ,   296 ,   298 ,
+        //300 ,   302 ,   304 ,   306 ,   308 ,
+        //310 ,   312 ,   314 ,   316 ,   318 ,
+        //320 ,   322 ,   324 ,   326 ,   328 ,
+        //330 ,   332 ,   334 ,   336 ,   338 ,
+        //340 ,   342 ,   344 ,   346 ,   348 ,
+        //350 ,   352 ,   354 ,   356 ,   358 ,
+        //360 ,   362 ,   364 ,   366 ,   368 ,
+        //370 ,   372 ,   374 ,   376 ,   378 ,
+        //380 ,   382 ,   384 ,   386 ,   388 ,
+        //390 ,   392 ,   394 ,   396 ,   398 ,
+        //400 ,   402 ,   404 ,   406 ,   408 ,
+        //410 ,   412 ,   414 ,   416 ,   418
+        // };
+        //listX.AddRange(fx);
+        //float[] fy = new float[] { 80  ,   82  ,   84  ,   86  ,   88  ,
+        //90  ,   92  ,   94  ,   96  ,   98  ,
+        //100 ,   102 ,   104 ,   106 ,   108 ,
+        //110 ,   112 ,   114 ,   116 ,   118 ,
+        //120 ,   122 ,   124 ,   126 ,   128 ,
+        //130 ,   132 ,   134 ,   136 ,   138 ,
+        //140 ,   142 ,   144 ,   146 ,   148 ,
+        //150 ,   152 ,   154 ,   156 ,   158 ,
+        //160 ,   162 ,   164 ,   166 ,   168 ,
+        //170 ,   172 ,   174 ,   176 ,   178 ,
+        //180 ,   182 ,   184 ,   186 ,   188 ,
+        //190 ,   192 ,   194 ,   196 ,   198 ,
+        //200 ,   202 ,   204 ,   206 ,   208 ,
+        //210 ,   212 ,   214 ,   216 ,   218 ,
+        //220 ,   222 ,   224 ,   226 ,   228 ,
+        //230 ,   232 ,   234 ,   236 ,   238 };
+        //listY.AddRange(fy);
+        //float[] fz = new float[] { 0 ,  1 ,  2 ,  3 ,  4,
+        //5 ,  6  , 7 ,  8  , 9,
+        //10,  11,  12  ,13, 14
+        // };
+        //listZ.AddRange(fz);
 
         //第一种   XZY有待商榷
         //for (int i = 0; i < listX.Count; i++)
@@ -133,30 +180,31 @@ public class ParticleTest : MonoBehaviour
         //    }
         //}
         //第四种  YXZ 不合适
-        for (int i = 0; i < listX.Count; i++)
-        {
-            for (int j = 0; j < listY.Count; j++)
-            {
-                for (int k = 0; k < listZ.Count; k++)
-                {
-                    //Vector3 vector3 = new Vector3(listY[j]-88, listX[i]-218, listZ[k]-78f);
-                    Vector3 vector3 = new Vector3(listY[j] - 100, listX[i] - 218, listZ[k] - 20f);
-                    list.Add(vector3);
-                }
-            }
-        }
-        //第五种  YZX   有待商榷
-        //for (int i = 0; i < listY.Count; i++)
+        //for (int i = 0; i < listX.Count; i++)
         //{
-        //    for (int j = 0; j < listZ.Count; j++)
+        //    for (int j = 0; j < listY.Count; j++)
         //    {
-        //        for (int k = 0; k < listX.Count; k++)
+        //        for (int k = 0; k < listZ.Count; k++)
         //        {
-        //            Vector3 vector3 = new Vector3(listY[i], listZ[j], listX[k]);
+        //            //Vector3 vector3 = new Vector3(listY[j]-88, listX[i]-218, listZ[k]-78f);
+        //            //Vector3 vector3 = new Vector3(listY[j] - 180, listX[i] - 258, listZ[k] - 20f);
+        //            Vector3 vector3 = new Vector3(listY[j], listX[i], listZ[k]);
         //            list.Add(vector3);
         //        }
         //    }
         //}
+        //第五种  YZX   有待商榷
+        for (int i = 0; i < listY.Count; i++)
+        {
+            for (int j = 0; j < listZ.Count; j++)
+            {
+                for (int k = 0; k < listX.Count; k++)
+                {
+                    Vector3 vector3 = new Vector3(listY[i], listZ[j], listX[k]);
+                    list.Add(vector3);
+                }
+            }
+        }
         //第六种 ZYX  不合适
         //for (int i = 0; i < listZ.Count; i++)
         //{
@@ -240,54 +288,110 @@ public class ParticleTest : MonoBehaviour
     /// </summary>
     private byte normalize(double g)
     {
+        //if (g > 0.1)
+        //{
+        //    g = 0.1;
+        //}
+        //if (g < 0.01)
+        //{
+        //    g = 0.01;
+        //}
         return (byte)(255 * g);
+        //return (byte)(255 * ((g - 0.01) / (0.1 - 0.01)));
     }
+
+    /// <summary>
+    /// 颜色判断
+    /// </summary>
+    //private 
 
     public void loadData()
     {
         //system.Stop(true);
         //system.Clear(true);
+
         listMole6Copy.Clear();
         listMole6Copy.AddRange(listMole6);
         Debug.Log("开始渲染" + listMole6Copy.Count);
+        Debug.Log("坐标数量"+list.Count);
         listMole6Copy.Sort();
         Debug.Log("最小值是：" + listMole6Copy[0]);
         Debug.Log("第二个值是：" + listMole6Copy[1]);
         Debug.Log("第三个值是：" + listMole6Copy[2]);
         Debug.Log("最大值是：" + listMole6Copy[listMole6Copy.Count - 1]);
         Debug.Log(listMole6Copy.Contains(9.54032020481622E-41) + "----" + normalize(2.2588931E-42) + "-----" + normalize(0.004));
+
         //打印所有坐标数据，判断是不是保存成功
-        //for (int i = 0; i < list.Count; i++)
-        for (int i = 0; i < 15; i++)
+        GameObject go = GameObject.Instantiate(Resources.Load("cube")) as GameObject;
+        go.transform.position = list[1];
+
+        //当前颜色
+        Color32 color ;
+        for (int i = 0; i < list.Count; i++)
+        //for (int i = 0; i < 15; i++)
         {
             //根据浓度计算透明度
             //if (listMole6[i] < 1e)
             //{
 
             //}
+            //记录当前浓度值，后续根据不同浓度修改
+            byte concentration = 0;
             if (listMole6[i] == 0)
             {
                 zeroPoint++;
+                color = new Color32(0,0,0, 0);
+                concentration = 0;
             }
-            if (0 < listMole6[i] && listMole6[i] < 0.2)
+            if (0 < listMole6[i] && listMole6[i] < 0.01)
             {
-                edgePoint++;
+                twoPoint++;
+                color = new Color32(255, 0, 0, 100);
+                concentration = 3;
             }
-            else if (0.2 <= listMole6[i] && listMole6[i] <= 0.8)
+            else if (0.01 <= listMole6[i] && listMole6[i] < 0.03)
             {
-                corePoint++;
+                threePoint++;
+                color = new Color32(255, 125, 0, 100);
+                concentration = 7;
             }
-            else if (listMole6[i] > 0.8)
+            else if (0.03 <= listMole6[i] && listMole6[i] < 0.06)
             {
-                releaseSourcePoint++;
+                fourPoint++;
+                color = new Color32(255, 255, 0, 100);
+                concentration = 15;
             }
+            else if (0.06 <= listMole6[i] && listMole6[i] < 0.1)
+            {
+                fivePoint++;
+                color = new Color32(255, 0, 255, 100);
+                concentration = 25;
+            }
+            else if (0.1 <= listMole6[i] && listMole6[i] <= 0.5)
+            {
+                sixPoint++;
+                color = new Color32(255, 0, 125, 100);
+                concentration = 128;
+            }
+            else if (listMole6[i] > 0.5)
+            {
+                sevenPoint++;
+                color = new Color32(255, 125, 255, 100);
+                concentration = 255;
+            }
+
+
+            //Debug.Log(list[i]);
             ParticleSystem.EmitParams emitParams = new ParticleSystem.EmitParams
             {
                 position = list[i],
                 //startSize = (float)(listMole6[i] * Math.Pow(10, 2) * 3),
                 //startSize = (float)listMole6[i],
+                //startColor = new Color32(255, 255, 255, 255),
+                //startColor = color,
                 startColor = new Color32(255, 255, 255, normalize(listMole6[i])),
-                startSize = 1f,
+                //startColor = new Color32(255, 255, 255, concentration),
+                startSize = 2f,
                 startLifetime = 525f,
                 angularVelocity = 0f
             };
@@ -306,10 +410,13 @@ public class ParticleTest : MonoBehaviour
             }
 
         }
-        Debug.Log("releaseSourcePoint" + releaseSourcePoint);
-        Debug.Log("corePoint" + corePoint);
-        Debug.Log("edgePoint" + edgePoint);
-        Debug.Log("zeroPoint" + zeroPoint);
+        Debug.Log("0---" + zeroPoint+"比例："+ Math.Round(((decimal)zeroPoint / listMole6.Count), 4));
+        Debug.Log("0-0.01---" + twoPoint + "比例：" + Math.Round(((decimal)twoPoint / listMole6.Count), 4));
+        Debug.Log("0.01-0.03---" + threePoint + "比例：" + Math.Round(((decimal)threePoint / listMole6.Count), 4));
+        Debug.Log("0.03-0.06---" + fourPoint + "比例：" + Math.Round(((decimal)fourPoint / listMole6.Count), 4));
+        Debug.Log("0.06-0.1---" + fivePoint + "比例：" + Math.Round(((decimal)fivePoint / listMole6.Count), 4));
+        Debug.Log("0.1-0.5---" + sixPoint + "比例：" + Math.Round(((decimal)sixPoint / listMole6.Count), 4));
+        Debug.Log("0.5-1---" + sevenPoint + "比例：" + Math.Round(((decimal)sevenPoint / listMole6.Count), 4));
         if (paticalSwitch == true)
         {
             paticalSwitch = false;
@@ -366,7 +473,8 @@ public class ParticleTest : MonoBehaviour
     /// </summary>
     public void loadMoleDataStatic()
     {
-        StreamReader sr = new StreamReader("D:\\a3730100  - 副本1.NFMOLE", Encoding.Default);
+        //a3730100  - 副本200秒.NFMOLE  data_39.txt  data39.txt
+        StreamReader sr = new StreamReader("D:\\a3730100  - 副本200秒.NFMOLE", Encoding.Default);
         string line;
         Debug.Log("开始读取");
         //清空浓度list
@@ -430,14 +538,15 @@ public class ParticleTest : MonoBehaviour
                 for (int i = 0; i < data.Length; i++)
                 {
                     if (data[i].Trim() != string.Empty && data[i].Trim().Contains("."))
+                        //if (data[i].Trim() != string.Empty)
                     {
                         //Debug.Log(data[i].Trim());
                         listMole6.Add(float.Parse(data[i].Trim()));
                     }
                 }
                 //}
-                //}
             }
+            //}
             //}
         }
         sr.Close();
@@ -449,7 +558,7 @@ public class ParticleTest : MonoBehaviour
     /// </summary>
     public void loadMoleData(object source, System.Timers.ElapsedEventArgs e)
     {
-        StreamReader sr = new StreamReader("D:\\a3730100 .NFMOLE", Encoding.Default);
+        StreamReader sr = new StreamReader("D:\\data_39.txt", Encoding.Default);
         string line;
         Debug.Log("开始读取");
         //清空浓度list
