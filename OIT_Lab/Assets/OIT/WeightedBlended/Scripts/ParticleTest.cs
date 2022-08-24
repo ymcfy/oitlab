@@ -10,11 +10,16 @@ public class ParticleTest : MonoBehaviour
     public ParticleSystem system1;
     public GameObject go;
     public List<Vector3> list = new List<Vector3>();
+    public List<Vector3> list1 = new List<Vector3>();
     public List<float> listX = new List<float>();
     public List<float> listY = new List<float>();
     public List<float> listZ = new List<float>();
+    public List<float> listX1 = new List<float>();
+    public List<float> listY1 = new List<float>();
+    public List<float> listZ1 = new List<float>();
     public List<double> listMole6 = new List<double>();
     public List<double> listMole6Copy = new List<double>();
+    public Dictionary<Vector3, double> dictionary = new Dictionary<Vector3, double>();
     //声明一个变量，储存当前加载到第几个时间段
     public int times = 0;
     private int a = 0;
@@ -98,50 +103,50 @@ public class ParticleTest : MonoBehaviour
                 }
             }
         }
-        //float[] fx = new float[] { 220 ,   222 ,   224 ,   226 ,   228 ,
-        //230 ,   232 ,   234 ,   236 ,   238 ,
-        //240 ,   242 ,   244 ,   246 ,   248 ,
-        //250 ,   252 ,   254 ,   256 ,   258 ,
-        //260 ,   262 ,   264 ,   266 ,   268 ,
-        //270 ,   272 ,   274 ,   276 ,   278 ,
-        //280 ,   282 ,   284 ,   286 ,   288 ,
-        //290 ,   292 ,   294 ,   296 ,   298 ,
-        //300 ,   302 ,   304 ,   306 ,   308 ,
-        //310 ,   312 ,   314 ,   316 ,   318 ,
-        //320 ,   322 ,   324 ,   326 ,   328 ,
-        //330 ,   332 ,   334 ,   336 ,   338 ,
-        //340 ,   342 ,   344 ,   346 ,   348 ,
-        //350 ,   352 ,   354 ,   356 ,   358 ,
-        //360 ,   362 ,   364 ,   366 ,   368 ,
-        //370 ,   372 ,   374 ,   376 ,   378 ,
-        //380 ,   382 ,   384 ,   386 ,   388 ,
-        //390 ,   392 ,   394 ,   396 ,   398 ,
-        //400 ,   402 ,   404 ,   406 ,   408 ,
-        //410 ,   412 ,   414 ,   416 ,   418
-        // };
-        //listX.AddRange(fx);
-        //float[] fy = new float[] { 80  ,   82  ,   84  ,   86  ,   88  ,
-        //90  ,   92  ,   94  ,   96  ,   98  ,
-        //100 ,   102 ,   104 ,   106 ,   108 ,
-        //110 ,   112 ,   114 ,   116 ,   118 ,
-        //120 ,   122 ,   124 ,   126 ,   128 ,
-        //130 ,   132 ,   134 ,   136 ,   138 ,
-        //140 ,   142 ,   144 ,   146 ,   148 ,
-        //150 ,   152 ,   154 ,   156 ,   158 ,
-        //160 ,   162 ,   164 ,   166 ,   168 ,
-        //170 ,   172 ,   174 ,   176 ,   178 ,
-        //180 ,   182 ,   184 ,   186 ,   188 ,
-        //190 ,   192 ,   194 ,   196 ,   198 ,
-        //200 ,   202 ,   204 ,   206 ,   208 ,
-        //210 ,   212 ,   214 ,   216 ,   218 ,
-        //220 ,   222 ,   224 ,   226 ,   228 ,
-        //230 ,   232 ,   234 ,   236 ,   238 };
-        //listY.AddRange(fy);
-        //float[] fz = new float[] { 0 ,  1 ,  2 ,  3 ,  4,
-        //5 ,  6  , 7 ,  8  , 9,
-        //10,  11,  12  ,13, 14
-        // };
-        //listZ.AddRange(fz);
+        float[] fx = new float[] { 220.1F ,   222 ,   224 ,   226 ,   228 ,
+        230 ,   232 ,   234 ,   236 ,   238 ,
+        240 ,   242 ,   244 ,   246 ,   248 ,
+        250 ,   252 ,   254 ,   256 ,   258 ,
+        260 ,   262 ,   264 ,   266 ,   268 ,
+        270 ,   272 ,   274 ,   276 ,   278 ,
+        280 ,   282 ,   284 ,   286 ,   288 ,
+        290 ,   292 ,   294 ,   296 ,   298 ,
+        300 ,   302 ,   304 ,   306 ,   308 ,
+        310 ,   312 ,   314 ,   316 ,   318 ,
+        320 ,   322 ,   324 ,   326 ,   328 ,
+        330 ,   332 ,   334 ,   336 ,   338 ,
+        340 ,   342 ,   344 ,   346 ,   348 ,
+        350 ,   352 ,   354 ,   356 ,   358 ,
+        360 ,   362 ,   364 ,   366 ,   368 ,
+        370 ,   372 ,   374 ,   376 ,   378 ,
+        380 ,   382 ,   384 ,   386 ,   388 ,
+        390 ,   392 ,   394 ,   396 ,   398 ,
+        400 ,   402 ,   404 ,   406 ,   408 ,
+        410 ,   412 ,   414 ,   416 ,   418
+         };
+        listX1.AddRange(fx);
+        float[] fy = new float[] { 80.1F  ,   82  ,   84  ,   86  ,   88  ,
+        90  ,   92  ,   94  ,   96  ,   98  ,
+        100 ,   102 ,   104 ,   106 ,   108 ,
+        110 ,   112 ,   114 ,   116 ,   118 ,
+        120 ,   122 ,   124 ,   126 ,   128 ,
+        130 ,   132 ,   134 ,   136 ,   138 ,
+        140 ,   142 ,   144 ,   146 ,   148 ,
+        150 ,   152 ,   154 ,   156 ,   158 ,
+        160 ,   162 ,   164 ,   166 ,   168 ,
+        170 ,   172 ,   174 ,   176 ,   178 ,
+        180 ,   182 ,   184 ,   186 ,   188 ,
+        190 ,   192 ,   194 ,   196 ,   198 ,
+        200 ,   202 ,   204 ,   206 ,   208 ,
+        210 ,   212 ,   214 ,   216 ,   218 ,
+        220 ,   222 ,   224 ,   226 ,   228 ,
+        230 ,   232 ,   234 ,   236 ,   238 };
+        listY1.AddRange(fy);
+        float[] fz = new float[] { 0.1F ,  1 ,  2 ,  3 ,  4,
+        5 ,  6  , 7 ,  8  , 9,
+        10,  11,  12  ,13, 14
+         };
+        listZ1.AddRange(fz);
 
         //第一种   XZY有待商榷
         //for (int i = 0; i < listX.Count; i++)
@@ -194,6 +199,17 @@ public class ParticleTest : MonoBehaviour
         //    }
         //}
         //第五种  YZX   有待商榷
+        for (int i = 0; i < listY1.Count; i++)
+        {
+            for (int j = 0; j < listZ1.Count; j++)
+            {
+                for (int k = 0; k < listX1.Count; k++)
+                {
+                    Vector3 vector3 = new Vector3(listY1[i], listZ1[j], listX1[k]);
+                    list1.Add(vector3);
+                }
+            }
+        }
         for (int i = 0; i < listY.Count; i++)
         {
             for (int j = 0; j < listZ.Count; j++)
@@ -217,6 +233,220 @@ public class ParticleTest : MonoBehaviour
         //        }
         //    }
         //}
+        //interpolation();
+        //Debug.Log(searchMin(listX, 396));
+        //进行插值，先测试对不对，再改为加载之前进行插值
+        //Debug.Log(Parse("(80.977,226.028,0.395)"));
+
+    }
+    /// <summary>
+    /// 找到有序数组第一个比目标数值大的数
+    /// </summary>
+    /// <param name="list"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public float searchMax(List<float> listsearch, float target)
+    {
+        int lf = 0, rt = listsearch.Count - 1;
+        while (lf <= rt)
+        {
+            int mid = lf + (rt - lf) / 2;
+            if (listsearch[mid] > target)
+            {
+                rt = mid - 1;
+            }
+            else
+            {
+                lf = mid + 1;
+            }
+        }
+        return listsearch[lf];
+    }
+
+    /// <summary>
+    /// 找到有序数组第一个比有序数组小的数
+    /// </summary>
+    /// <param name="list"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    public float searchMin(List<float> listsearch, float target)
+    {
+        int lf = 0, rt = listsearch.Count - 1;
+        while (lf <= rt)
+        {
+            int mid = lf + (rt - lf) / 2;
+            if (listsearch[mid] < target)
+            {
+                lf = mid + 1;
+            }
+            else
+            {
+                rt = mid - 1;
+                
+            }
+        }
+        return listsearch[rt];
+    }
+
+    /// <summary>
+    /// 将字符串转为vector
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
+    public static Vector3 Parse(string str)
+    {
+        str = str.Replace("(", " ").Replace(")", " "); //将字符串中"("和")"替换为" "
+        string[] s = str.Split(',');
+        return new Vector3(float.Parse(s[0]), float.Parse(s[1]), float.Parse(s[2]));
+    }
+
+
+
+    public double interpolation(Vector3 Des) {
+        /**目前有了均匀化网格数据 原始浓度数据
+        需要得到插值后的浓度数据
+        先对少量数据进行测试
+        1.对于确定位置关系的数据进行插值测试
+        2.对于不确定位置关系的数据进行插值测试
+        3.对于所有数据进行测试
+        首先是对确定位置关系的数据进行插值测试
+        输入数据是八个原始点及其浓度值、一个待插值点坐标，要求输出待插值点坐标的数据
+
+         */
+        //
+        /**
+        Vector3 A = new Vector3(1,5,5);
+        Vector3 B = new Vector3(5, 5, 5);
+        Vector3 C = new Vector3(5, 1, 5);
+        Vector3 D = new Vector3(1, 1, 5);
+        Vector3 E = new Vector3(1, 5, 1);
+        Vector3 F = new Vector3(5, 5, 1);
+        Vector3 G = new Vector3(5, 1, 1);
+        Vector3 H = new Vector3(1, 1, 1);
+        */
+        //Vector3 Des = new Vector3(2,2,2);
+        
+        /**
+        接下来需要确定谁是ABCDEFGH，这些必须是固定的才能求abcdMN
+        */
+        //A比待插值点z值大且比其y值大且比其x值小
+        Vector3 A = new Vector3(searchMin(listY, Des.x),searchMax(listZ,Des.y),searchMax(listX,Des.z));
+        //B x大 y大 z大
+        Vector3 B = new Vector3(searchMax(listY, Des.x), searchMax(listZ, Des.y), searchMax(listX, Des.z));
+        //C x大 y小 z大                       Y                        Z                        X
+        Vector3 C = new Vector3(searchMax(listY, Des.x), searchMin(listZ, Des.y), searchMax(listX, Des.z));
+        //D x小 y小 z大                       Y                        Z                        X
+        Vector3 D = new Vector3(searchMin(listY, Des.x), searchMin(listZ, Des.y), searchMax(listX, Des.z));
+        //E x小 y大 z小                       Y                        Z                        X
+        Vector3 E = new Vector3(searchMin(listY, Des.x), searchMax(listZ, Des.y), searchMin(listX, Des.z));
+        //F x大 y大 z小                       Y                        Z                        X
+        Vector3 F = new Vector3(searchMax(listY, Des.x), searchMax(listZ, Des.y), searchMin(listX, Des.z));
+        //G x大 y小 z小                       Y                        Z                        X
+        Vector3 G = new Vector3(searchMax(listY, Des.x), searchMin(listZ, Des.y), searchMin(listX, Des.z));
+        //H x小 y小 z小                       Y                        Z                        X
+        Vector3 H = new Vector3(searchMin(listY, Des.x), searchMin(listZ, Des.y), searchMin(listX, Des.z));
+
+        //还需要将原始浓度listmole6与原始坐标list绑定
+        double concentrationA = dictionary[A];
+        double concentrationB = dictionary[B];
+        double concentrationC = dictionary[C];
+        double concentrationD = dictionary[D];
+        double concentrationE = dictionary[E];
+        double concentrationF = dictionary[F];
+        double concentrationG = dictionary[G];
+        double concentrationH = dictionary[H];
+
+        //求abcdMN六个点的坐标
+        //以M点为例，是O点xy坐标不变，z坐标与A坐标相等  
+        //不过如果这样写，那么之后立方体代码，A点方向应该确定，也就是必须是上方靠左靠后那个，其他点类似
+        Vector3 M = new Vector3(Des.x,Des.y,A.z);
+        //Debug.Log(M);
+        Vector3 N = new Vector3(Des.x, Des.y, E.z);
+        //Debug.Log(N);
+        //a点，是M点yz不变，x变为与A相似
+        Vector3 a = new Vector3(A.x,M.y,M.z);
+        //Debug.Log(a);
+        //b点，是M点yz不变，x变为与B相似
+        Vector3 b = new Vector3(B.x, M.y, M.z);
+        //Debug.Log(b);
+        //c点，是N点yz不变，x变为与F相似
+        Vector3 c = new Vector3(F.x, N.y, N.z);
+        //Debug.Log(c);
+        //d点，是N点yz不变，x变为与E相似
+        Vector3 d = new Vector3(E.x, N.y, N.z);
+        //Debug.Log(d);
+
+        //接下来根据坐标比例计算浓度，根据AD Aa 长度比例和AD浓度值计算a浓度值  此处可以单独再写个函数
+        //计算a b c d
+        double concentrationOfa = concentrationByRatey(A,D,a,concentrationA, concentrationD);
+        //Debug.Log(concentrationOfa);
+        double concentrationOfb = concentrationByRatey(B, C, b, concentrationB, concentrationC);
+        //Debug.Log(concentrationOfb);
+        double concentrationOfc = concentrationByRatey(F, G, c, concentrationF, concentrationG);
+        //Debug.Log(concentrationOfc);
+        double concentrationOfd = concentrationByRatey(E, H, d, concentrationE, concentrationH);
+        //Debug.Log(concentrationOfd);
+        //计算M N
+        double concentrationOfM = concentrationByRatex(a, b, M, concentrationOfa, concentrationOfb);
+        //Debug.Log(concentrationOfM);
+        double concentrationOfN = concentrationByRatex(d, c, N, concentrationOfd, concentrationOfc);
+        //计算目标点
+        double concentrationDes = concentrationByRatez(M, N, Des, concentrationOfM, concentrationOfN);
+        //Debug.Log(concentrationDes);
+        return concentrationDes;
+    }
+
+    /// <summary>
+    /// 根据长度比例计算浓度,采取在x轴上插值
+    /// </summary>
+    /// <returns></returns>
+    public double concentrationByRatex(Vector3 A, Vector3 B, Vector3 a, double concentrationA, double concentrationB)
+    {
+        ////首先计算长度
+        //double lengthOfAB = (A - B).magnitude;
+        //double lengthOfAa = (A - a).magnitude;
+        ////然后计算比例
+        ////都是double，直接除就行
+        ////比例乘以AB浓度差，得到Aa浓度差，即A-a的浓度差
+        //double offsetAa = (concentrationA - concentrationB) * (lengthOfAB / lengthOfAa);
+        ////得到a的浓度
+        //return concentrationA - offsetAa;
+        return concentrationA + ((concentrationB - concentrationA) / (B.x - A.x)) * (a.x - A.x);
+    }
+
+    /// <summary>
+    /// 根据长度比例计算浓度,采取在y轴上插值
+    /// </summary>
+    /// <returns></returns>
+    public double concentrationByRatey(Vector3 A,Vector3 B,Vector3 a,double concentrationA,double concentrationB) {
+        ////首先计算长度
+        //double lengthOfAB = (A - B).magnitude;
+        //double lengthOfAa = (A - a).magnitude;
+        ////然后计算比例
+        ////都是double，直接除就行
+        ////比例乘以AB浓度差，得到Aa浓度差，即A-a的浓度差
+        //double offsetAa = (concentrationA - concentrationB) * (lengthOfAB / lengthOfAa);
+        ////得到a的浓度
+        //return concentrationA - offsetAa;
+        return concentrationA + ((concentrationB - concentrationA) / (B.y - A.y)) * (a.y - A.y);
+    }
+
+    /// <summary>
+    /// 根据长度比例计算浓度,采取在z轴上插值
+    /// </summary>
+    /// <returns></returns>
+    public double concentrationByRatez(Vector3 A, Vector3 B, Vector3 a, double concentrationA, double concentrationB)
+    {
+        ////首先计算长度
+        //double lengthOfAB = (A - B).magnitude;
+        //double lengthOfAa = (A - a).magnitude;
+        ////然后计算比例
+        ////都是double，直接除就行
+        ////比例乘以AB浓度差，得到Aa浓度差，即A-a的浓度差
+        //double offsetAa = (concentrationA - concentrationB) * (lengthOfAB / lengthOfAa);
+        ////得到a的浓度
+        //return concentrationA - offsetAa;
+        return concentrationA + ((concentrationB - concentrationA) / (B.z - A.z)) * (a.z - A.z);
     }
 
     private DateTime startTime;
@@ -288,32 +518,46 @@ public class ParticleTest : MonoBehaviour
     /// </summary>
     private byte normalize(double g)
     {
-        //if (g > 0.1)
-        //{
-        //    g = 0.1;
-        //}
-        //if (g < 0.01)
-        //{
-        //    g = 0.01;
-        //}
-        return (byte)(255 * g);
-        //return (byte)(255 * ((g - 0.01) / (0.1 - 0.01)));
+        if (g > 0.1)
+        {
+            g = 0.1;
+        }
+        if (g < 0.01)
+        {
+            g = 0.01;
+        }
+        //return (byte)(255 * g);
+        return (byte)(255 * ((g - 0.01) / (0.1 - 0.01)));
     }
 
+    
+
     /// <summary>
-    /// 颜色判断
+    /// 进行插值
     /// </summary>
-    //private 
+    public void interpolationNFML() {
+        //先将所有数据存入字典
+        for (int i = 0; i < list.Count; i++) {
+            dictionary.Add(list[i],listMole6[i]);
+        }
+        //对均匀网格每一个数据插值
+        for (int i = 0; i < list1.Count; i++) {
+            listMole6[i] =  interpolation(list1[i]);
+        }
+        Debug.Log("插值完成"+  DateTime.Now.ToString());
+    }
 
     public void loadData()
     {
         //system.Stop(true);
         //system.Clear(true);
+        //在此处进行插值，需要原始坐标、新坐标、原始浓度数据
+
 
         listMole6Copy.Clear();
         listMole6Copy.AddRange(listMole6);
         Debug.Log("开始渲染" + listMole6Copy.Count);
-        Debug.Log("坐标数量"+list.Count);
+        Debug.Log("坐标数量"+list1.Count);
         listMole6Copy.Sort();
         Debug.Log("最小值是：" + listMole6Copy[0]);
         Debug.Log("第二个值是：" + listMole6Copy[1]);
@@ -323,11 +567,11 @@ public class ParticleTest : MonoBehaviour
 
         //打印所有坐标数据，判断是不是保存成功
         GameObject go = GameObject.Instantiate(Resources.Load("cube")) as GameObject;
-        go.transform.position = list[1];
+        go.transform.position = list1[1];
 
         //当前颜色
         Color32 color ;
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < list1.Count; i++)
         //for (int i = 0; i < 15; i++)
         {
             //根据浓度计算透明度
@@ -384,7 +628,7 @@ public class ParticleTest : MonoBehaviour
             //Debug.Log(list[i]);
             ParticleSystem.EmitParams emitParams = new ParticleSystem.EmitParams
             {
-                position = list[i],
+                position = list1[i],
                 //startSize = (float)(listMole6[i] * Math.Pow(10, 2) * 3),
                 //startSize = (float)listMole6[i],
                 //startColor = new Color32(255, 255, 255, 255),
@@ -473,10 +717,11 @@ public class ParticleTest : MonoBehaviour
     /// </summary>
     public void loadMoleDataStatic()
     {
-        //a3730100  - 副本200秒.NFMOLE  data_39.txt  data39.txt
+        Debug.Log("当前时间："+ DateTime.Now.ToString());
+        //a3730100  - 副本200秒.NFMOLE  data_39.txt  data39.txt  result.txt
         StreamReader sr = new StreamReader("D:\\a3730100  - 副本200秒.NFMOLE", Encoding.Default);
         string line;
-        Debug.Log("开始读取");
+        //Debug.Log("开始读取");
         //清空浓度list
         listMole6.Clear();
         listMole6Copy.Clear();
@@ -511,7 +756,7 @@ public class ParticleTest : MonoBehaviour
             {
                 if (line.Contains("TIME"))
                 {
-                    Debug.Log("当前时间" + line);
+                    //Debug.Log("当前时间" + line);
                 }
             }
             else
@@ -549,7 +794,8 @@ public class ParticleTest : MonoBehaviour
             //}
             //}
         }
-        sr.Close();
+            sr.Close();
+        interpolationNFML();
         loadData();
     }
 
